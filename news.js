@@ -1,7 +1,8 @@
 // news.js
 
 document.addEventListener("DOMContentLoaded", () => {
-    const apiKey = "2fd3f49de3cb41e2944c55fc8d42e04a";
+    // Get API key from environment variable
+    const apiKey = process.env.NEWS_API_KEY || "2fd3f49de3cb41e2944c55fc8d42e04a";
     const apiUrl = `https://newsapi.org/v2/everything?q=agriculture%20India&apiKey=${apiKey}`;
     const newsContainer = document.getElementById('news-container');
     let articles = [];

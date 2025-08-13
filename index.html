@@ -879,7 +879,8 @@
 
         <script>
             document.addEventListener("DOMContentLoaded", function() {
-                const API_KEY = "YQQaYl6caqFVXroQ7ZZyqXcxSEdNFniO";
+                // Get API key from environment variable or use a default (for development)
+                const API_KEY = process.env.WEATHER_API_KEY || "YQQaYl6caqFVXroQ7ZZyqXcxSEdNFniO";
 
                 function fetchWeather(lat, lon, locationName) {
                     const URL = `https://api.tomorrow.io/v4/weather/forecast?location=${lat},${lon}&apikey=${API_KEY}`;
