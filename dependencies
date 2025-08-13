@@ -1,7 +1,0 @@
-npm install express mongoose cors dotenv nodemon
-
-npm install express mongoose bcryptjs jsonwebtoken cors dotenv
-
-953309a0010ad9ea3f3159ff829f721782aa3e21514f9df207b5474854bee1b1f5742ad897b35251c72dfc08ca99e736e2191fac22669d8d9469336c9e14eabb
-
-http://localhost:5000/api/schemes

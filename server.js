@@ -1,11 +1,11 @@
 const express = require("express");
-const mongoose = require("mongoose");
 const cors = require("cors");
 require("dotenv").config();
 
-// Import models
-const User = require("./models/user");
-const Scheme = require("./models/scheme");
+// In-memory data stores
+let users = [];
+let schemes = [];
+let expenses = [];
 
 const app = express();
 
@@ -28,114 +28,93 @@ const validateExpenseInput = (req, res, next) => {
         return res.status(400).json({ error: "❌ All expense fields are required" });
     }
     if (isNaN(amount) || amount <= 0) {
-        return res.status(400).json({ error: "❌ Invalid amount" });
+        return res.status(400).json({ error: " Invalid amount" });
     }
     next();
 };
 
-// Connect to MongoDB
-async function connectDB() {
-    try {
-        await mongoose.connect(process.env.MONGO_URI, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true
-        });
-        console.log("✅ MongoDB Connected");
-    } catch (err) {
-        console.error("❌ MongoDB Connection Error:", err);
-        process.exit(1);
-    }
-}
-connectDB();
-
 // Scheme Routes
-app.get("/api/schemes", async (req, res) => {
+app.get("/api/schemes", (req, res) => {
     try {
-        const schemes = await Scheme.find();
         res.json(schemes);
     } catch (error) {
-        console.error("❌ Get Schemes Error:", error);
-        res.status(500).json({ error: "❌ Failed to fetch schemes" });
+        console.error(" Get Schemes Error:", error);
+        res.status(500).json({ error: " Failed to fetch schemes" });
     }
 });
 
-app.post("/api/schemes", validateSchemeInput, async (req, res) => {
+app.post("/api/schemes", validateSchemeInput, (req, res) => {
     try {
-        const newScheme = new Scheme(req.body);
-        await newScheme.save();
-        res.status(201).json({ message: "✅ Scheme Added Successfully!" });
+        const newScheme = {
+            id: Date.now().toString(),
+            ...req.body,
+            createdAt: new Date(),
+            updatedAt: new Date()
+        };
+        schemes.push(newScheme);
+        res.status(201).json({ message: " Scheme Added Successfully!" });
     } catch (error) {
-        console.error("❌ Add Scheme Error:", error);
-        res.status(500).json({ error: "❌ Failed to add scheme" });
+        console.error(" Add Scheme Error:", error);
+        res.status(500).json({ error: " Failed to add scheme" });
     }
 });
 
-app.delete("/api/schemes/:id", async (req, res) => {
+app.delete("/api/schemes/:id", (req, res) => {
     try {
-        const deletedScheme = await Scheme.findByIdAndDelete(req.params.id);
-        if (!deletedScheme) {
-            return res.status(404).json({ error: "❌ Scheme not found" });
+        const schemeIndex = schemes.findIndex(scheme => scheme.id === req.params.id);
+        if (schemeIndex === -1) {
+            return res.status(404).json({ error: " Scheme not found" });
         }
-        res.json({ message: "✅ Scheme Deleted Successfully!" });
+        schemes.splice(schemeIndex, 1);
+        res.json({ message: " Scheme Deleted Successfully!" });
     } catch (error) {
-        console.error("❌ Delete Scheme Error:", error);
-        res.status(500).json({ error: "❌ Failed to delete scheme" });
+        console.error(" Delete Scheme Error:", error);
+        res.status(500).json({ error: " Failed to delete scheme" });
     }
 });
 
-// Expense Routes - Modified to work without authentication
-app.post("/api/expenses", validateExpenseInput, async (req, res) => {
+// Expense Routes
+app.post("/api/expenses", validateExpenseInput, (req, res) => {
     try {
         const { type, name, category, amount, description, date } = req.body;
         
-        // Create a new user document if it doesn't exist, or use the existing one
-        let user = await User.findOne();
-        if (!user) {
-            user = new User({
-                name: "Default User",
-                expenses: []
-            });
-        }
-
-        user.expenses.push({ type, name, category, amount, description, date });
-        await user.save();
-
-        res.json({ message: "✅ Expense Added Successfully!" });
-    } catch (error) {
-        console.error("❌ Add Expense Error:", error);
-        res.status(500).json({ error: "❌ Failed to add expense" });
-    }
-});
-
-app.get("/api/expenses", async (req, res) => {
-    try {
-        const user = await User.findOne();
-        if (!user) {
-            return res.json([]);  // Return empty array if no expenses exist
-        }
-        res.json(user.expenses);
-    } catch (error) {
-        console.error("❌ Get Expenses Error:", error);
-        res.status(500).json({ error: "❌ Failed to fetch expenses" });
-    }
-});
-
-app.delete("/api/expenses/:expenseId", async (req, res) => {
-    try {
-        const user = await User.findOne();
-        if (!user) {
-            return res.status(404).json({ error: "❌ No expenses found" });
-        }
-
-        const expenseIndex = user.expenses.findIndex(exp => exp._id.toString() === req.params.expenseId);
+        // Create a new expense
+        const newExpense = {
+            id: Date.now().toString(),
+            type,
+            name,
+            category,
+            amount: Number(amount),
+            description: description || '',
+            date: new Date(date),
+            createdAt: new Date()
+        };
         
+        expenses.push(newExpense);
+        res.status(201).json({ message: " Expense added successfully!" });
+    } catch (error) {
+        console.error(" Add Expense Error:", error);
+        res.status(500).json({ error: " Failed to add expense" });
+    }
+});
+
+app.get("/api/expenses", (req, res) => {
+    try {
+        res.json(expenses);
+    } catch (error) {
+        console.error(" Get Expenses Error:", error);
+        res.status(500).json({ error: " Failed to fetch expenses" });
+    }
+});
+
+app.delete("/api/expenses/:expenseId", (req, res) => {
+    try {
+        const expenseIndex = expenses.findIndex(expense => expense.id === req.params.expenseId);
         if (expenseIndex === -1) {
             return res.status(404).json({ error: "❌ Expense not found" });
         }
 
-        user.expenses.splice(expenseIndex, 1);
-        await user.save();
-
+        expenses.splice(expenseIndex, 1);
         res.json({ message: "✅ Expense Deleted Successfully!" });
     } catch (error) {
         console.error("❌ Delete Expense Error:", error);
