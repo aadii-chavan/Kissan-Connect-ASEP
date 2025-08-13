@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Kissan Connect - Sign Up</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="css2/bootstrap.css">
+
+    <!-- Theme Styles -->
+    <link rel="stylesheet" type="text/css" href="css2/styles.css">
+
+    <!-- Icons -->
+    <link rel="stylesheet" type="text/css" href="icons2/fontawesome/css/all.min.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images2/logo/logo3x.png">
+
+      <!-- Icon -->
+      <link rel="stylesheet" type="text/css" href="icons/icomoon/style.css" />
+      <link rel="stylesheet" type="text/css" href="icons/fontawesome/css/all.min.css" />
+
+    <style>
+        /* Centering the Form */
+        .signup-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            /* Full viewport height */
+            background: url('./images2/page-title/blog-full-w.jpg') no-repeat center center/cover;
+        }
+
+        .signup-box {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 400px;
+        }
+
+        .signup-box h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .signup-box input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        .password-container {
+            position: relative;
+            width: 100%;
+        }
+
+        .password-container i {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+
+        /* Center the Sign Up button */
+        .signup-box button {
+            /* Center the button with auto margins */
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        .extra-links {
+            margin-top: 15px;
+        }
+
+        .extra-links a {
+            display: block;
+            text-decoration: none;
+            font-size: 14px;
+            color: #007bff;
+            margin-top: 5px;
+        }
+
+        .extra-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="signup-container">
+        <div class="signup-box">
+            <h2>Sign Up</h2>
+            <form id="signup-form">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="email" id="email" placeholder="Your Email" required>
+
+                <div class="password-container">
+                    <input type="password" id="password" placeholder="Enter Password" required>
+                    <i class="fas fa-eye" id="togglePassword"></i>
+                </div>
+
+                <div class="password-container">
+                    <input type="password" id="confirm-password" placeholder="Confirm Password" required>
+                    <i class="fas fa-eye" id="toggleConfirmPassword"></i>
+                </div>
+
+                <p class="error" id="error-message"></p>
+
+                <br>
+                <button type="submit" class="tf-btn gap-30" class="right">
+                    <span class="text-style">
+                        Sign up
+                    </span>
+                    <div class="icon">
+                        <i class="icon-arrow_right"></i>
+                    </div>
+                </button>
+            </form>
+
+            <div class="extra-links">
+                <a href="login.html">Already have an account? Login</a>
+                <a href="index.html">← Go to Home</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Toggle Password Visibility
+        document.getElementById("togglePassword").addEventListener("click", function () {
+            let passwordField = document.getElementById("password");
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                this.classList.replace("fa-eye", "fa-eye-slash");
+            } else {
+                passwordField.type = "password";
+                this.classList.replace("fa-eye-slash", "fa-eye");
+            }
+        });
+
+        document.getElementById("toggleConfirmPassword").addEventListener("click", function () {
+            let passwordField = document.getElementById("confirm-password");
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                this.classList.replace("fa-eye", "fa-eye-slash");
+            } else {
+                passwordField.type = "password";
+                this.classList.replace("fa-eye-slash", "fa-eye");
+            }
+        });
+
+        // Validate Password Match
+        document.getElementById("signup-form").addEventListener("submit", function (event) {
+            event.preventDefault();
+            let password = document.getElementById("password").value;
+            let confirmPassword = document.getElementById("confirm-password").value;
+            let errorMessage = document.getElementById("error-message");
+
+            if (password !== confirmPassword) {
+                errorMessage.textContent = "Passwords do not match!";
+            } else {
+                errorMessage.textContent = "";
+                alert("✅ Signup Successful!");
+                // Redirect to login page
+                window.location.href = "login.html";
+            }
+        });
+    </script>
+
+</body>
+
+</html>

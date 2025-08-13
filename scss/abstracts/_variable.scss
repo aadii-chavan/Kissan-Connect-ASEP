@@ -1,0 +1,84 @@
+// settings
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+
+$font-main: "Inter Tight",
+sans-serif; //change
+$font-main2: "Farmhouse",
+sans-serif;
+$font-main3: "Sarabun",
+sans-serif;
+$font-main4: "Nunito Sans",
+sans-serif;
+$font-main5: "Work Sans",
+sans-serif;
+$font-main6: "GlitterySnowfall",
+sans-serif;
+// ---- icon
+$fontIcon: "icomoon";
+$fontIcon2: "Font Awesome 6 Free";
+
+:root {
+    --Black: #000000;
+    --White: #ffffff;
+    --body-text: #6e7673;
+    --Primary: #0d401c;
+    --Secondary: #f8c32c;
+    --Third: #8a9b8e;
+    --Text: #6e7673;
+    --Text-2: #072010;
+    --Text-3: #eeeeee;
+    --Text-4: #278d45;
+    --Text-5: #222222;
+    --Text-6: #ededed;
+    --Text-7: #093416;
+    --Bg: #235130;
+    --Bg-1: rgb(13, 64, 28, 0.1);
+    --Bg-2: rgb(4, 18, 8, 0.4);
+    --Bg-3: rgb(13, 64, 28, 0.05);
+    --Bg-4: #6c512f;
+    --Bg-5: #3d6649;
+    --Bg-6: #52320a;
+    --Bg-7: rgb(13, 64, 28, 0.12);
+    --Bg-8: #f3f0eb;
+    --Bg-9: rgb(13, 64, 28, 0.13);
+    --Bg-10: rgb(13, 64, 28, 0.05);
+    --Bg-11: #1c6932;
+    --Bg-12: rgba(255, 255, 255, 0.07);
+    --Bg-13: rgb(13, 64, 28, 0.7);
+    --Bg-14: rgb(4, 18, 8, 0.3);
+    --Bg-15: rgb(255, 255, 255, 0.25);
+    --Bg-16: #e9e0ce;
+    --Bg-17: rgb(13, 64, 28, 0.07);
+
+    --Border: rgb(13, 64, 28, 0.15);
+    --Border-2: #6a5030;
+    --Border-3: rgb(255, 255, 255, 0.2);
+    --Border-4: #dbe3dd;
+    --Border-5: rgba(255, 255, 255, 0.15);
+    --Border-6: #e9e4df;
+    --Border-7: rgba(255, 255, 255, 0.5);
+    --Border-8: rgb(243, 240, 235, 0.25);
+    --Border-9: rgb(4, 18, 8, 0.25);
+    --Border-10: rgba(255, 255, 255, 0.3);
+    --Border-11: #d1d6cc;
+    --Border-12: rgb(13, 64, 28, 0.2);
+    --Border-13: rgb(82, 50, 10, 0.23);
+    --Border-14: #3b6345;
+    --Border-15: rgb(13, 64, 28, 0.5);
+    --Color-1: #d11b1b;
+    --Color-2: #acd373;
+    --Color-3: #f26522;
+    --Color-4: #8560a8;
+    --Color-5: #95bfa1;
+    --Color-6: rgb(255, 255, 255, 0.4);
+    --Color-7: #156b2f;
+    --Color-8: #1cbbb4;
+    --Color-9: #bd8cbf;
+    --Color-10: #f26c4f;
+    --Color-11: #ed1c24;
+    --Color-12: #00aeef;
+    --Color-13: #39b54a;
+}

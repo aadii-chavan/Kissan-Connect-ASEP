@@ -1,0 +1,126 @@
+.img-hover {
+    .hover-item {
+        overflow: hidden;
+        img {
+            width: 100%;
+            transform: scale(1.1);
+            transition: all 1s ease-in-out;
+        }
+    }
+    .hover-item-2 {
+        overflow: hidden;
+        img {
+            width: 100%;
+            transform: scale(1.1);
+            @include transition5;
+            // transition: all 0 ease-in-out;
+        }
+    }
+    &:hover {
+        .hover-item {
+            img {
+                transform: scale(1.15);
+            }
+        }
+        .hover-item-2 {
+            img {
+                transform: scale(1.2);
+            }
+        }
+    }
+}
+.ic-hover {
+    .hover-icon {
+        .icon,
+        &.icon {
+            transition: all 0.8s ease-in-out;
+        }
+    }
+    .hover-icon-2 {
+        .icon,
+        &.icon {
+            transition: all 0.8s ease-in-out;
+        }
+    }
+    &:hover {
+        .hover-icon {
+            .icon,
+            &.icon {
+                transform: rotateY(360deg);
+            }
+        }
+    }
+    &:hover {
+        .hover-icon-2 {
+            .icon,
+            &.icon {
+                transform: rotateY(180deg);
+            }
+        }
+    }
+}
+
+// zoom img
+.tf-img-hover {
+    .hover01 {
+        img {
+            -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+            -webkit-transition: 0.3s ease-in-out;
+            transition: 0.3s ease-in-out;
+        }
+    }
+    .hover06 {
+        img {
+            -webkit-transform: rotate(15deg) scale(1.4);
+            transform: rotate(15deg) scale(1.4);
+            -webkit-transition: 0.3s ease-in-out;
+            transition: 0.3s ease-in-out;
+        }
+    }
+    .hover14 {
+        position: relative;
+        &::before {
+            position: absolute;
+            top: 0;
+            left: -75%;
+            z-index: 2;
+            display: block;
+            content: "";
+            width: 50%;
+            height: 100%;
+            background: -webkit-linear-gradient(
+                left,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0.3) 100%
+            );
+            background: linear-gradient(
+                to right,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0.3) 100%
+            );
+            -webkit-transform: skewX(-25deg);
+            transform: skewX(-25deg);
+        }
+    }
+    &:hover {
+        .hover01 {
+            img {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+            }
+        }
+        .hover06 {
+            img {
+                -webkit-transform: rotate(0) scale(1);
+                transform: rotate(0) scale(1);
+            }
+        }
+        .hover14 {
+            &::before {
+                -webkit-animation: shine 0.75s;
+                animation: shine 0.75s;
+            }
+        }
+    }
+}

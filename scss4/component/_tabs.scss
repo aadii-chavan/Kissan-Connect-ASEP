@@ -1,0 +1,230 @@
+.wg-tabs {
+    .menu-tab {
+        @include flex(center, center);
+        gap: 41px;
+        margin-bottom: 35px;
+        white-space: nowrap;
+        &.mb-61 {
+            margin-bottom: 61px;
+        }
+        &.mb-65 {
+            margin-bottom: 62px;
+        }
+        .item {
+            @include transition3;
+
+            a {
+                padding-bottom: 15px;
+                position: relative;
+                font-size: 18px;
+                font-weight: 500;
+                font-family: $font-main5;
+                display: block;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    bottom: 0px;
+                    left: auto;
+                    right: 0;
+                    height: 2px;
+                    width: 0;
+                    background-color: var(--Secondary);
+                    @include transition3;
+                }
+                &:hover {
+                    color: var(--Text-4);
+                    &::after {
+                        left: 0;
+                        right: auto;
+                        width: 100%;
+                    }
+                }
+            }
+            &.active {
+                a {
+                    color: var(--Text-4);
+                    &::after {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+    .widget-content-tab {
+        .widget-content-inner {
+            visibility: hidden;
+            opacity: 0;
+
+            &.active {
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+    }
+    &.style-2 {
+        margin-top: 29px;
+        border-radius: 20px;
+        border: 1px solid var(--Border);
+        padding: 0px 130px 72px;
+        .menu-tab {
+            padding: 0px 20px;
+            margin-top: -32px;
+            margin-bottom: 38px;
+            gap: 14px;
+            background: white;
+            .item {
+                a {
+                    font-size: 16px;
+                    background-color: var(--Bg-9);
+                    color: var(--Primary);
+                    border-radius: 27.5px;
+                    padding: 20px 56px 20px 52px;
+                    &::after {
+                        content: none;
+                    }
+                    &:hover {
+                        background-color: var(--Primary);
+                        color: var(--White);
+                    }
+                }
+                &.active {
+                    a {
+                        background-color: var(--Primary);
+                        color: var(--White);
+                    }
+                }
+            }
+        }
+        .widget-content-inner {
+            text-align: center;
+            p {
+                letter-spacing: 0.1px;
+            }
+            .text-1 {
+                margin-bottom: 16px;
+            }
+        }
+    }
+    &.style-3 {
+        .menu-tab {
+            justify-content: flex-start;
+            .item {
+                &.active {
+                    .btn-tab {
+                        color: var(--Secondary);
+                    }
+                }
+                .btn-tab {
+                    color: var(--White);
+                    &::after {
+                        content: none;
+                    }
+                    &:hover {
+                        color: var(--Secondary);
+                    }
+                }
+            }
+        }
+    }
+    &.style-4 {
+        .menu-tab {
+            flex-direction: column;
+            margin-bottom: 0px;
+            gap: 10px;
+            align-items: start;
+            li {
+                width: 100%;
+                a {
+                    font-family: $font-main5;
+                    color: var(--White);
+                    padding-bottom: 0px;
+                    &:hover {
+                        color: var(--Secondary);
+                        padding-left: 24px;
+                        &::before {
+                            left: 0;
+                            @include visible;
+                            transition-delay: 0.1s;
+                        }
+                    }
+                    &::after {
+                        content: none;
+                    }
+                    &::before {
+                        position: absolute;
+                        font-size: 25px;
+                        color: var(--Secondary);
+                        content: "\e926";
+                        font-family: $fontIcon;
+                        top: 50%;
+                        left: -18px;
+                        transform: translateY(-50%);
+                        @include transition3;
+                        @include hidden;
+                    }
+                }
+                &.active {
+                    a {
+                        &::before {
+                            left: -8px;
+                            @include visible;
+                        }
+                        padding-left: 24px;
+                        color: var(--Secondary);
+                    }
+                }
+                &:not(:last-child) {
+                    padding-bottom: 21px;
+                    border-bottom: 1px dashed var(--Border-5);
+                }
+                &:not(:first-child) {
+                    padding-top: 10px;
+                }
+            }
+        }
+    }
+    &.style-5 {
+        border-radius: 20px 20px 10px 10px;
+        overflow: hidden;
+        .menu-tab {
+            padding: 0px;
+            margin-bottom: 0px;
+            gap: 0px;
+            .item {
+                width: 100%;
+                &:not(:last-child) {
+                    border-right: 1px solid var(--White);
+                }
+                &.active {
+                    a {
+                        background-color: var(--Primary);
+                        color: var(--White);
+                    }
+                }
+                a {
+                    padding-bottom: 0px;
+                    color: var(--Bg-6);
+                    width: 100%;
+                    @include flex(center, center);
+                    background-color: var(--Secondary);
+                    padding: 16px 0px 17px;
+                    text-align: center;
+                    text-transform: uppercase;
+                    font-weight: 600;
+                    font-size: 16px;
+                    &::after {
+                        content: none;
+                    }
+                }
+            }
+        }
+        .widget-content-tab {
+            background-color: var(--Bg-8);
+            padding: 31px 30px 31px 31px;
+            p {
+                letter-spacing: 0.2px;
+            }
+        }
+    }
+}

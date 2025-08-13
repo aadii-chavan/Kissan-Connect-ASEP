@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<!--<![endif]-->
+
+<head>
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8" />
+    <title>Kissan Connect - Expense Tracker</title>
+    <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+    <meta name="description"
+        content="DonalFarm is a minimal, clean, and modern One Page HTML Template designed for farms and other agriculture-related businesses, such as organic farms, agricultural research centers, or produce stores.">
+    <meta name="keywords"
+        content=" dairy farm, poultry farm, livestock, organic produce, fresh vegetables, fruits, grains, sustainable agriculture, eco-friendly farming, farm machinery, irrigation, tractor">
+    <meta name="author" content="themesflat.com">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+    <!-- Theme Style -->
+    <link rel="stylesheet" type="text/css" href="css/magnific-popup.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/odometer.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/swiper-bundle.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+
+    <!-- Animation Style -->
+    <link rel="stylesheet" type="text/css" href="css/animate.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/animate2.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/textanimation.css" />
+
+    <!-- Map Style -->
+    <link rel="stylesheet" type="text/css" href="css/map.min.css" />
+
+    <!-- Expense Tracker -->
+    <link rel="stylesheet" href="expense.css">
+
+    <!-- Font -->
+    <link rel="stylesheet" href="font/fonts.css" />
+
+    <!-- Icon -->
+    <link rel="stylesheet" type="text/css" href="icons/icomoon/style.css" />
+    <link rel="stylesheet" type="text/css" href="icons/fontawesome/css/all.min.css" />
+
+    <!-- Favicon and Touch Icons  -->
+    <link rel="shortcut icon" href="images/logo/logo3x.png" />
+    <link rel="apple-touch-icon-precomposed" href="images/logo/logo3x.png" />
+
+    <!-- PDF Export -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+
+</head>
+
+<body>
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Preloader -->
+        <div id="loading">
+            <div id="loading-center">
+                <div class="loader-container">
+                    <div class="wrap-loader">
+                        <div class="loader">
+                        </div>
+                        <div class="icon">
+                            <img src="./images/logo/logo3x.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.Preloader -->
+
+
+
+        <!-- Header  -->
+        <header class="header has-item-bot" id="header-main">
+            <div class="tf-container w-1780">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="header-inner">
+                            <div class="header-left">
+                                <div class="logo-site">
+                                    <a href="index.html">
+                                        <img src="kissan-connect-logo.png" alt="" />
+                                    </a>
+                                </div>
+                                <div class="main-nav">
+                                    <ul class="nav-list">
+                                        <li class="item has-child ">
+                                            <a href="javascript:void(0)">Home</a>
+                                            <ul class="sub-nav">
+                                                <li class="">
+                                                    <a href="index.html">
+                                                        <span>
+                                                            Home
+                                                        </span>
+                                                    </a>
+                                                </li>
+
+                                            </ul>
+                                        </li>
+                                        <li class="item has-child current-menu">
+                                            <a href="javascript:void(0)">Explore Tools</a>
+                                            <ul class="sub-nav">
+                                                <li>
+                                                    <a href="expense-tracker.html">
+                                                        <span>
+                                                            Expense Tracker
+                                                        </span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="government-schemes.html">
+                                                        <span>
+                                                            Government Schemes
+                                                        </span>
+                                                    </a>
+                                                </li>
+
+                                            </ul>
+                                        </li>
+                                        <li class="item has-child ">
+                                            <a href="news.html">News & Updates</a>
+                                        </li>
+                                        <li class="item has-child ">
+                                            <a href="index.html#Weather">Weather Report</a>
+                                        </li>
+                                        <li class="item has-child cu">
+                                            <a href="contact-us.html">Contact</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="header-right">
+                                <a href="contact-us.html" class="tf-btn gap-30">
+                                    <span class="text-style">
+                                        Get In Touch!
+                                    </span>
+                                    <div class="icon">
+                                        <i class="icon-arrow_right"></i>
+                                    </div>
+                                </a>
+
+                                <div class="mobile-button">
+                                    <span></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mobile-nav-wrap">
+                            <div class="overlay-mobile-nav"></div>
+                            <div class="inner-mobile-nav overflow-y-auto">
+                                <div class="top">
+                                    <div class="logo">
+                                        <a href="index.html" rel="home" class="main-logo">
+                                            <img id="mobile-logo_header" alt="" src="kissan-connect-logo.png" />
+                                        </a>
+                                        <div class="mobile-nav-close">
+                                            <i class="icon-close"></i>
+                                        </div>
+                                    </div>
+                                    <nav id="mobile-main-nav" class="mobile-main-nav">
+                                        <ul id="menu-mobile-menu" class="menu">
+                                            <li class="menu-item menu-item-has-children-mobile ">
+                                                <a class="item-menu-mobile " href="javascript:void(0)">
+                                                    Home
+                                                    <i class="icon-arrow_down"></i>
+                                                </a>
+                                                <ul class="sub-menu-mobile">
+                                                    <li class="menu-item ">
+                                                        <a href="index.html">Home</a>
+                                                    </li>
+
+                                                </ul>
+                                            </li>
+                                            <li class="menu-item menu-item-has-children-mobile">
+                                                <a class="item-menu-mobile current-menu" href="javascript:void(0)">
+                                                    Explore Tools
+                                                    <i class="icon-arrow_down"></i>
+                                                </a>
+                                                <ul class="sub-menu-mobile">
+                                                    <li class="menu-item">
+                                                        <a href="expense-tracker.html">Expense Tracker</a>
+                                                    </li>
+                                                    <li class="menu-item">
+                                                        <a href="government-schemes.html">Government Schemes</a>
+                                                    </li>
+
+                                                </ul>
+                                            </li>
+
+                                            <li class="menu-item menu-item-has-children-mobile ">
+                                                <a class="item-menu-mobile " href="news.html">News & Updates</a>
+                                            </li>
+
+                                            <li class="menu-item menu-item-has-children-mobile ">
+                                                <a class="item-menu-mobile " href="index.html#Weather">Weather
+                                                    Report</a>
+                                            </li>
+
+                                            <li class="menu-item menu-item-has-children-mobile ">
+                                                <a class="item-menu-mobile " href="contact-us.html">Contact</a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+
+                                </div>
+                                <div class="bottom">
+                                    <div class="infor-list">
+                                        <ul>
+                                            <li>
+                                                <h5 class="title">
+                                                    Address:
+                                                </h5>
+                                                <p>
+                                                    VIT Kondhwa, Pune
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <h5 class="title">
+                                                    Phone:
+                                                </h5>
+                                                <p>
+                                                    +91 111-000-11
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <h5 class="title">
+                                                    Email:
+                                                </h5>
+                                                <p>
+
+                                                    kissan.connect24@gmail.com
+                                                </p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="wg-social">
+                                        <ul class="list">
+                                            <li class="item">
+                                                <a href="#"><i class="icon-facebook1"></i></a>
+                                            </li>
+                                            <li class="item">
+                                                <a href="#"><i class="icon-twitter"></i></a>
+                                            </li>
+                                            <li class="item">
+                                                <a href="#"><i class="icon-instagram2"></i></a>
+                                            </li>
+                                            <li class="item">
+                                                <a href="#"><i class="icon-pinterest"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="fixed-header style-absolute">
+                <div class="tf-container w-1780">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="header-inner ">
+                                <div class="header-left">
+                                    <div class="logo-site">
+                                        <a href="index.html">
+                                            <img src="kissan-connect-logo.png" alt="" />
+                                        </a>
+                                    </div>
+                                    <div class="main-nav">
+                                        <ul class="nav-list">
+                                            <li class="item has-child ">
+                                                <a href="javascript:void(0)">Home</a>
+                                                <ul class="sub-nav">
+                                                    <li class="">
+                                                        <a href="index.html">
+                                                            <span>
+                                                                Home
+                                                            </span>
+                                                        </a>
+                                                    </li>
+
+                                                </ul>
+                                            </li>
+                                            <li class="item has-child">
+                                                <a href="javascript:void(0)">Explore Tools</a>
+                                                <ul class="sub-nav">
+                                                    <li>
+                                                        <a href="about-us.html">
+                                                            <span>
+                                                                Expense Tracker
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="our-commitments.html">
+                                                            <span>
+                                                                Government Schemes
+                                                            </span>
+                                                        </a>
+                                                    </li>
+
+
+                                                </ul>
+                                            </li>
+                                            <li class="item has-child ">
+                                                <a href="news.html">News & Updates</a>
+                                            </li>
+                                            <li class="item has-child ">
+                                                <a href="index.html#Weather">Weather Report</a>
+                                            </li>
+                                            <li class="item has-child ">
+                                                <a href="contact-us.html">Contact</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="header-right">
+                                    <a href="contact-us.html" class="tf-btn gap-30">
+                                        <span class="text-style">
+                                            Get In Touch!
+                                        </span>
+                                        <div class="icon">
+                                            <i class="icon-arrow_right"></i>
+                                        </div>
+                                    </a>
+
+                                    <div class="mobile-button">
+                                        <span></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="header-item children">
+                    <img src="./images/item/page-title-top.png" alt="">
+                </div>
+            </div>
+
+            <div class="header-item">
+                <img src="./images/item/page-title-top.png" alt="">
+            </div>
+        </header>
+        <!-- /.Header -->
+
+        <!-- Page-title -->
+        <div class="page-title page-contact-us  ">
+            <div class="rellax" data-rellax-speed="5">
+                <img src="./images/page-title/home-3-1.jpg" alt="">
+            </div>
+            <div class="content-wrap">
+                <div class="tf-container w-1290">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="content">
+                                <p class="sub-title">
+                                    Track Every Rupee, Grow Every Crop
+                                </p>
+                                <h1 class="title">
+                                    Expense Tracker
+                                </h1>
+                                <div class="icon-img">
+                                    <img src="./images/item/line-throw-title.png" alt="">
+                                </div>
+                                <div class="breadcrumb">
+                                    <a href="index.html">Home</a>
+                                    <div class="icon">
+                                        <i class="icon-arrow-right1"></i>
+                                    </div>
+                                    <a href="javascript:void(0)">Expense Tracker </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="img-item item-2">
+                <img src="./images/item/grass.png" alt="">
+            </div>
+        </div>
+        <!-- /.Page-title -->
+
+
+        <br>
+        <!-- Main-content -->
+         <section class="s-service-2 relative overflow-hidden">
+            
+            <div class="container">
+                <!-- Toggle Buttons -->
+                <div class="toggle-container">
+                    <a id="general-btn" class="tf-btn active" href="javascript:void(0);">
+                        <span class="text-style">General Tracking</span>
+                        <div class="icon"><i class="icon-arrow_right"></i></div>
+                    </a>
+    
+                    <a id="plot-btn" class="tf-btn" href="javascript:void(0);">
+                        <span class="text-style">Plot-wise Tracking</span>
+                        <div class="icon"><i class="icon-arrow_right"></i></div>
+                    </a>
+                </div>
+    
+                <!-- General Expense Tracker -->
+                <div id="general-tracker" class="tracker-box" >
+                    <div class="page-title page-contact-us">
+                        <div class="rellax" data-rellax-speed="5">
+                            <img src="cover-general.webp" alt="General Tracker">
+                        </div>
+                        <div class="content-wrap">
+                            <div class="tf-container w-1290">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="content">
+                                            <p class="sub-title">Track Every Rupee, Grow Every Crop</p>
+                                            <h1 class="title">General Expense Tracker</h1>
+                                            <div class="icon-img">
+                                                <img src="./images/item/line-throw-title.png" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="img-item item-2">
+                            <img src="./images/item/grass.png" alt="">
+                        </div>
+                    </div>
+    
+                    <div class="tracker-content">
+                        <form id="general-expense-form">
+                            <input type="text" id="gen-expense-name" placeholder="Expense Name" required>
+                            <textarea id="gen-expense-desc" placeholder="Description (Optional)"></textarea>
+                            <input type="number" id="gen-expense-amount" placeholder="Amount (₹)" required>
+                            <input type="date" id="gen-expense-date" required>
+    
+                            <div class="button-container">
+                                <button id="add-expense-btn" class="tf-btn bg-white gap-30" href="javascript:void(0);">
+                                    <span class="text-style cl-primary">Add Expense</span>
+                                    <div class="icon"><i class="icon-arrow_right"></i></div>
+                                </button>
+    
+                                <button id="export-general-pdf" class="tf-btn bg-white gap-30" href="javascript:void(0);">
+                                    <span class="text-style cl-primary">Export to PDF</span>
+                                    <div class="icon"><i class="icon-arrow_right"></i></div>
+                                </button>
+                            </div>
+                        </form>
+    
+                        <h3 class="recently-added-expenses">Recently Added Expenses</h3>
+                        <div class="table-responsive">
+                            <table id="general-expense-table" class="expense-table">
+                                <thead>
+                                    <tr>
+                                        <th>Expense Name</th>
+                                        <th>Description</th>
+                                        <th>Amount</th>
+                                        <th>Date</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Expenses will be added dynamically here -->
+                                </tbody>
+                            </table>
+                            <div id="general-empty-state" class="empty-state">No expenses added yet</div>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Plot-wise Expense Tracker -->
+               
+                <div id="plot-tracker" class="tracker-box hidden" >
+                    <div class="page-title page-contact-us">
+                        <div class="rellax" data-rellax-speed="5">
+                            <img src="cover-plot.webp" alt="Plot Tracker">
+                        </div>
+                        <div class="content-wrap">
+                            <div class="tf-container w-1290">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="content">
+                                            <p class="sub-title">Track Every Rupee, Grow Every Crop</p>
+                                            <h1 class="title">Plot-Wise Expense Tracker</h1>
+                                            <div class="icon-img">
+                                                <img src="./images/item/line-throw-title.png" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="img-item item-2">
+                            <img src="./images/item/grass.png" alt="">
+                        </div>
+                    </div>
+    
+                    <div class="tracker-content">
+                        <div id="plot-details">
+                            <input type="text" id="plot-name" placeholder="Plot Name" required>
+                            <textarea id="plot-desc" placeholder="Brief Description"></textarea>
+    
+                            <button id="save-plot-btn" class="tf-btn bg-white gap-30">
+                                <span class="text-style cl-primary">Save Plot</span>
+                                <div class="icon"><i class="icon-arrow_right"></i></div>
+                            </button>
+                        </div>
+    
+                        <h3 class="select-existing-plot">Select an Existing Plot:</h3>
+                        <select id="plot-dropdown">
+                            <option value="">Select a Plot</option>
+                        </select>
+    
+                        <div id="expense-box">
+                            <h3 class="add-expense-to-selected-plot">Add Expense to Selected Plot</h3>
+                            <select id="expense-category">
+                                <option value="">Select the category</option>
+                                <option value="Seeds">Seeds</option>
+                                <option value="Fertilizers">Fertilizers</option>
+                                <option value="Water">Water</option>
+                                <option value="Labor">Labor</option>
+                                <option value="Equipment">Equipment</option>
+                                <option value="Fuel">Fuel</option>
+                                <option value="Transportation">Transportation</option>
+                                <option value="Insurance">Insurance</option>
+                                <option value="Custom">Custom (Enter Below)</option>
+                            </select>
+                            <input type="text" id="custom-category" placeholder="Custom Category (if selected)"
+                                class="hidden">
+                            <input type="number" id="plot-expense-amount" placeholder="Amount (₹)" required>
+                            <textarea id="plot-expense-desc" placeholder="Description (Optional)"></textarea>
+                            <input type="date" id="plot-expense-date" required>
+    
+                            <div class="button-container">
+                                <button id="add-plot-expense-btn" class="tf-btn bg-white gap-30" href="javascript:void(0);">
+                                    <span class="text-style cl-primary">Add Expense</span>
+                                    <div class="icon"><i class="icon-arrow_right"></i></div>
+                                </button>
+    
+                                <button id="export-plot-pdf" class="tf-btn bg-white gap-30" href="javascript:void(0);">
+                                    <span class="text-style cl-primary">Export to PDF</span>
+                                    <div class="icon"><i class="icon-arrow_right"></i></div>
+                                </button>
+                            </div>
+                        </div>
+    
+                        <h3 class="recently-added-expenses">Recently Added Plot Expenses</h3>
+                        
+                        <!-- New Filter Controls -->
+                        <div class="filter-controls">
+                            <div class="filter-row">
+                                <div class="filter-group">
+                                    <label for="filter-plot">Filter by Plot:</label>
+                                    <select id="filter-plot" class="filter-select">
+                                        <option value="all">All Plots</option>
+                                        <!-- Plot options will be added dynamically -->
+                                    </select>
+                                </div>
+                                <div class="filter-group">
+                                    <label for="filter-category">Filter by Category:</label>
+                                    <select id="filter-category" class="filter-select">
+                                        <option value="all">All Categories</option>
+                                        <option value="Seeds">Seeds</option>
+                                        <option value="Fertilizers">Fertilizers</option>
+                                        <option value="Water">Water</option>
+                                        <option value="Labor">Labor</option>
+                                        <option value="Equipment">Equipment</option>
+                                        <option value="Fuel">Fuel</option>
+                                        <option value="Transportation">Transportation</option>
+                                        <option value="Insurance">Insurance</option>
+                                        <!-- Custom categories will be added dynamically -->
+                                    </select>
+                                </div>
+                                <button id="reset-filters" class="reset-filter-btn">
+                                    <i class="icon-reset"></i> Reset Filters
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="table-responsive">
+                            <table id="plot-expense-table" class="expense-table">
+                                <thead>
+                                    <tr>
+                                        <th>Plot Name</th>
+                                        <th>Category</th>
+                                        <th>Description</th>
+                                        <th>Amount</th>
+                                        <th>Date</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Plot expenses will be added dynamically here -->
+                                </tbody>
+                            </table>
+                            <div id="plot-empty-state" class="empty-state">No plot expenses added yet</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+    
+            <script src="expense.js"></script>
+            </section>
+    
+         </section>
+      
+
+        <!-- /.Main-content -->
+
+
+
+        <!-- Footer -->
+        <footer class="footer" id="footer-main">
+            <div class="tf-container w-1290">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="footer-top">
+                            <div class="footer-left">
+                                <div class="logo">
+                                    <a href="index.html">
+                                        <img src="kissan-connect-logo.png" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="footer-center">
+                                <p class="font-snowfall">
+                                    Farm of laughter and happiness!
+                                </p>
+                            </div>
+                            <div class="footer-right">
+                                <div class="wg-social">
+                                    <ul class="list">
+                                        <li class="item">
+                                            <a href="#"><i class="icon-facebook1"></i></a>
+                                        </li>
+                                        <li class="item">
+                                            <a href="#"><i class="icon-twitter"></i></a>
+                                        </li>
+                                        <li class="item">
+                                            <a href="#"><i class="icon-instagram2"></i></a>
+                                        </li>
+                                        <li class="item">
+                                            <a href="#"><i class="icon-pinterest"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-inner">
+                <div class="tf-container w-1290">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 ">
+                            <div class="footer-inner-wrap footer-col-block">
+                                <h4 class="footer-title footer-title-desktop mb-23">
+                                    Contact Us!
+                                </h4>
+                                <h4 class="footer-title footer-title-mobile mb-23">
+                                    Contact Us!
+                                </h4>
+                                <ul class="contact-list tf-collapse-content">
+                                    <li>
+                                        <i class="fa-solid fa-location-dot fs-17"></i>
+                                        <p class="address">
+                                            VIT Kondhwa, Pune
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <i class="fa-solid fa-phone"></i>
+                                        <p class="phone-number fs-15">
+                                            Call us: +91 111-000-111
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <i class="icon-package-box"></i>
+                                        <p class="email fs-15">
+                                            Mail: kissan.connect24@gmail.com
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <i class="fa-solid fa-clock"></i>
+                                        <p class="time-open fs-15">
+                                            Mon - Fri: 8.00am - 18.00pm
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 ">
+                            <div class="footer-inner-wrap footer-col-block">
+                                <h4 class="footer-title footer-title-desktop mb-28">
+                                    Quick Links
+                                </h4>
+                                <h4 class="footer-title footer-title-mobile mb-28">
+                                    Quick Links
+                                </h4>
+                                <ul class="link-list tf-collapse-content">
+                                    <li class="item">
+
+                                        <a href="expense-tracker.html">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="14"
+                                                height="16">
+                                                <path
+                                                    d="M264.547 70.633L440.547 238.633C445.297 243.164 447.984 249.445 447.984 256.008S445.297 268.852 440.547 273.383L264.547 441.383C254.953 450.508 239.766 450.164 230.609 440.57C221.453 431.07 221.797 415.82 231.422 406.633L364.09 280.008H24C10.75 280.008 0 269.258 0 256.008S10.75 232.008 24 232.008H364.09L231.422 105.383C221.797 96.227 221.453 80.977 230.609 71.445C239.766 61.852 254.953 61.508 264.547 70.633Z">
+                                                </path>
+                                            </svg>
+                                            Expense Tracker
+                                        </a>
+                                    </li>
+                                    <li class="item">
+
+                                        <a href="government-schemes.html">
+
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="14"
+                                                height="16">
+                                                <path
+                                                    d="M264.547 70.633L440.547 238.633C445.297 243.164 447.984 249.445 447.984 256.008S445.297 268.852 440.547 273.383L264.547 441.383C254.953 450.508 239.766 450.164 230.609 440.57C221.453 431.07 221.797 415.82 231.422 406.633L364.09 280.008H24C10.75 280.008 0 269.258 0 256.008S10.75 232.008 24 232.008H364.09L231.422 105.383C221.797 96.227 221.453 80.977 230.609 71.445C239.766 61.852 254.953 61.508 264.547 70.633Z">
+                                                </path>
+                                            </svg>
+                                            Government schemes</a>
+                                    </li>
+                                    <li class="item">
+                                        <a href="nwes.html">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="14"
+                                                height="16">
+                                                <path
+                                                    d="M264.547 70.633L440.547 238.633C445.297 243.164 447.984 249.445 447.984 256.008S445.297 268.852 440.547 273.383L264.547 441.383C254.953 450.508 239.766 450.164 230.609 440.57C221.453 431.07 221.797 415.82 231.422 406.633L364.09 280.008H24C10.75 280.008 0 269.258 0 256.008S10.75 232.008 24 232.008H364.09L231.422 105.383C221.797 96.227 221.453 80.977 230.609 71.445C239.766 61.852 254.953 61.508 264.547 70.633Z">
+                                                </path>
+                                            </svg>
+                                            News & Updates</a>
+                                    </li>
+                                    <li class="item">
+                                        <a href="index.html#Weather">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="14"
+                                                height="16">
+                                                <path
+                                                    d="M264.547 70.633L440.547 238.633C445.297 243.164 447.984 249.445 447.984 256.008S445.297 268.852 440.547 273.383L264.547 441.383C254.953 450.508 239.766 450.164 230.609 440.57C221.453 431.07 221.797 415.82 231.422 406.633L364.09 280.008H24C10.75 280.008 0 269.258 0 256.008S10.75 232.008 24 232.008H364.09L231.422 105.383C221.797 96.227 221.453 80.977 230.609 71.445C239.766 61.852 254.953 61.508 264.547 70.633Z">
+                                                </path>
+                                            </svg>
+                                            Weather Report</a>
+                                    </li>
+                                    <li class="item">
+                                        <a href="our-services.html">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="14"
+                                                height="16">
+                                                <path
+                                                    d="M264.547 70.633L440.547 238.633C445.297 243.164 447.984 249.445 447.984 256.008S445.297 268.852 440.547 273.383L264.547 441.383C254.953 450.508 239.766 450.164 230.609 440.57C221.453 431.07 221.797 415.82 231.422 406.633L364.09 280.008H24C10.75 280.008 0 269.258 0 256.008S10.75 232.008 24 232.008H364.09L231.422 105.383C221.797 96.227 221.453 80.977 230.609 71.445C239.766 61.852 254.953 61.508 264.547 70.633Z">
+                                                </path>
+                                            </svg>
+                                            See Our Services</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="footer-inner-wrap">
+                                <h4 class="footer-title fs-20">
+                                    Subscribe Newsletter
+                                </h4>
+                                <form id="subscribe-form" method="post" accept-charset="utf-8" data-mailchimp="true"
+                                    action="#" class=" form-newsletter form-email style-2">
+                                    <div id="subscribe-content" class="w-100">
+                                        <input id="subscribe-email" type="email" name="email-form" class="email style-2"
+                                            placeholder="Email address*" aria-required=" true" required>
+                                        <button id="subscribe-button" type="button"
+                                            class="tf-btn full bg-white scale-40">
+                                            <span class="text-style cl-primary">
+                                                Subscribe Now!
+                                            </span>
+                                            <span class="icon">
+                                                <i class="fa-solid fa-paper-plane fs-14"></i>
+                                            </span>
+                                        </button>
+                                    </div>
+                                    <div id="subscribe-msg"></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tf-container w-1290">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="footer-bottom">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="img-item item-1">
+                <img src="./images2/item/grass-2.png" alt="">
+            </div>
+            <div class="img-item item-2 wow zoomIn">
+                <div class="scroll-element-4">
+                    <img src="./images/item/silo.png" alt="">
+                </div>
+            </div>
+        </footer>
+        <!-- /Footer -->
+
+    </div>
+    <!-- /#Wapper -->
+
+    <!-- Open-search -->
+    <div class="offcanvas offcanvas-top offcanvas-search" id="canvasSearch">
+        <button class="btn-close-search" type="button" data-bs-dismiss="offcanvas" aria-label="Close">
+            <i class="icon-close"></i>
+        </button>
+        <div class="tf-container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="offcanvas-body">
+                        <form action="#" class="form-search-courses">
+                            <div class="icon">
+                                <i class="icon-keyboard"></i>
+                            </div>
+                            <fieldset>
+                                <input class="" type="text" placeholder="Search for anything" name="text" tabindex="2"
+                                    value="" aria-required="true" required="">
+                            </fieldset>
+                            <div class="button-submit">
+                                <button class="" type="submit">
+                                    <i class="icon-magnifying-glass"></i>
+                                </button>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.Open-search -->
+
+    <!-- Prograss -->
+    <div class="progress-wrap">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"
+                style="transition: stroke-dashoffset 10ms linear; stroke-dasharray: 307.919, 307.919; stroke-dashoffset: 307.919;">
+            </path>
+        </svg>
+    </div>
+    <!-- /.Prograss -->
+
+    <!-- Javascript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/lazysize.min.js"></script>
+    <script type="text/javascript" src="js/wow.min.js"></script>
+    <script type="text/javascript" src="js/magnific-popup.min.js"></script>
+    <script type="text/javascript" src="js/odometer.min.js"></script>
+    <script type="text/javascript" src="js/counter.js"></script>
+    <script type="text/javascript" src="js/swiper-bundle.min.js"></script>
+    <script type="text/javascript" src="js/swiper.js"></script>
+    <script type="text/javascript" src="js/map.min.js"></script>
+    <script type="text/javascript" src="js/map.js"></script>
+    <script type="text/javascript" src="js/jquery-validate.js"></script>
+    <script type="text/javascript" src="js/rellax.min.js"></script>
+    <script>
+        var rellax = new Rellax(".rellax");
+    </script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <!-- /Javascript -->
+
+</body>
+
+</html>

@@ -1,0 +1,151 @@
+@mixin flex($alignItem, $justifyContent) {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: $alignItem;
+    justify-content: $justifyContent;
+}
+@mixin grid($loop, $num, $row-gap, $col-gap) {
+    display: grid;
+    grid-template-columns: repeat($loop, $num);
+    gap: $row-gap $col-gap;
+}
+@mixin d-flex() {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+@mixin centered() {
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+@mixin center($x, $y) {
+    -webkit-transform: translate($x, $y);
+    -moz-transform: translate($x, $y);
+    -ms-transform: translate($x, $y);
+    -o-transform: translate($x, $y);
+    transform: translate($x, $y);
+}
+
+// --------------------------
+
+@mixin transition1() {
+    -webkit-transition: all 0.1s ease;
+    -moz-transition: all 0.1s ease;
+    -ms-transition: all 0.1s ease;
+    -o-transition: all 0.1s ease;
+    transition: all 0.1s ease;
+}
+@mixin transition2() {
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -ms-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+@mixin transition3() {
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+@mixin transition4() {
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    -ms-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+}
+@mixin transition5() {
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+@mixin transition6() {
+    -webkit-transition: all 0.6s ease;
+    -moz-transition: all 0.6s ease;
+    -ms-transition: all 0.6s ease;
+    -o-transition: all 0.6s ease;
+    transition: all 0.6s ease;
+}
+@mixin transition7() {
+    -webkit-transition: all 0.7s ease;
+    -moz-transition: all 0.7s ease;
+    -ms-transition: all 0.7s ease;
+    -o-transition: all 0.7s ease;
+    transition: all 0.7s ease;
+}
+@mixin transition8() {
+    -webkit-transition: all 0.8s ease;
+    -moz-transition: all 0.8s ease;
+    -ms-transition: all 0.8s ease;
+    -o-transition: all 0.8s ease;
+    transition: all 0.8s ease;
+}
+@mixin transition9() {
+    -webkit-transition: all 0.9s ease;
+    -moz-transition: all 0.9s ease;
+    -ms-transition: all 0.9s ease;
+    -o-transition: all 0.9s ease;
+    transition: all 0.9s ease;
+}
+@mixin transition10() {
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+@mixin transition-cubic-3() {
+    -webkit-transition: all 0.3s cubic-bezier(0.4, 0.5, 0.6, 0.7);
+    -khtml-transition: all 0.3s cubic-bezier(0.4, 0.5, 0.6, 0.7);
+    -moz-transition: all 0.3s cubic-bezier(0.4, 0.5, 0.6, 0.7);
+    -ms-transition: all 0.3s cubic-bezier(0.4, 0.5, 0.6, 0.7);
+    -o-transition: all 0.3s cubic-bezier(0.4, 0.5, 0.6, 0.7);
+    transition: all 0.3s cubic-bezier(0.4, 0.5, 0.6, 0.7);
+}
+@mixin transition-cubic-1() {
+    -webkit-transition: 0.6s cubic-bezier(0.63, 0.25, 0.25, 1);
+    -khtml-transition: 0.6s cubic-bezier(0.63, 0.25, 0.25, 1);
+    -moz-transition: 0.6s cubic-bezier(0.63, 0.25, 0.25, 1);
+    -ms-transition: 0.6s cubic-bezier(0.63, 0.25, 0.25, 1);
+    -o-transition: 0.6s cubic-bezier(0.63, 0.25, 0.25, 1);
+    transition: 0.6s cubic-bezier(0.63, 0.25, 0.25, 1);
+}
+@mixin transition-cubic-2() {
+    -webkit-transition: 1s cubic-bezier(0.63, 0.25, 0.25, 1);
+    -khtml-transition: 1s cubic-bezier(0.63, 0.25, 0.25, 1);
+    -moz-transition: 1s cubic-bezier(0.63, 0.25, 0.25, 1);
+    -ms-transition: 1s cubic-bezier(0.63, 0.25, 0.25, 1);
+    -o-transition: 1s cubic-bezier(0.63, 0.25, 0.25, 1);
+    transition: 1s cubic-bezier(0.63, 0.25, 0.25, 1);
+}
+@mixin transition-cubic-4 {
+    -webkit-transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+    -khtml-transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+    -moz-transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+    -ms-transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+    -o-transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+@mixin hidden() {
+    visibility: hidden;
+    opacity: 0;
+}
+@mixin visible() {
+    visibility: visible;
+    opacity: 1;
+}

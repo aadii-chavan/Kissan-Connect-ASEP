@@ -1,0 +1,148 @@
+//reset accordion
+.accordion {
+    .accordion-item {
+        border-color: transparent;
+        .accordion-header {
+            .accordion-button {
+                @include transition3;
+                position: relative;
+                &::after {
+                    @include transition3;
+                    content: "";
+                    margin-left: unset;
+                }
+                &::before {
+                    @include transition3;
+                }
+                &:not(.collapsed) {
+                    background-color: unset;
+                    box-shadow: unset;
+                    &::after {
+                        transform: rotate(90deg);
+                    }
+                }
+                &:focus {
+                    box-shadow: unset;
+                }
+            }
+        }
+        .accordion-collapse {
+            @include transition3;
+
+            .accordion-body {
+                @include transition3;
+            }
+        }
+    }
+}
+//end reset
+
+.tf-accordion {
+    width: 100%;
+    .accordion-item {
+        border-radius: 10px;
+        border: unset;
+        overflow: hidden;
+        &:not(:last-child) {
+            margin-bottom: 9px;
+        }
+        .accordion-header {
+            background-color: var(--Primary);
+
+            .accordion-button {
+                padding: 17px 25px 15px 29px;
+                background-color: var(--Primary);
+                font-size: 18px;
+                line-height: 28px;
+                font-family: $font-main5;
+                font-weight: 600;
+                color: var(--White);
+                &::before {
+                    @include transition3;
+                    position: absolute;
+                    content: "";
+                    width: 14px;
+                    height: 2px;
+                    top: 29px;
+                    right: 35px;
+                    background-color: var(--Secondary);
+                }
+                &::after {
+                    @include transition3;
+
+                    content: "";
+                    position: absolute;
+                    width: 2px;
+                    height: 14px;
+                    background-color: var(--Secondary);
+                    right: 41px;
+                    top: 23px;
+                    margin-left: unset;
+                    background-image: unset;
+                }
+            }
+        }
+        .accordion-collapse {
+            .accordion-body {
+                background-color: var(--Bg-8);
+                font-family: $font-main4;
+                letter-spacing: 0.1px;
+                line-height: 26px;
+                font-size: 16px;
+                padding: 30px 30px 31px 30px;
+                margin-bottom: 13px;
+                border-radius: 0px 0px 20px 20px;
+                color: var(--Text);
+            }
+        }
+    }
+}
+
+.tf-dropdown-sort {
+    cursor: pointer;
+    position: relative;
+    padding: 15px 0px;
+    .btn-select {
+        @include d-flex();
+        span {
+            color: var(--White);
+            font-size: 16px;
+            line-height: 26px;
+        }
+    }
+    &.tf-languages,
+    &.tf-currencies {
+        .btn-select {
+            @include d-flex();
+            gap: 7px;
+            align-items: center;
+            .icon {
+                i {
+                    font-size: 10px;
+                    color: var(--White);
+                }
+            }
+        }
+        .dropdown-menu {
+            width: 96px;
+            background-color: var(--Bg-11);
+            top: 10px;
+            border-radius: 10px;
+            padding-top: unset;
+            padding-bottom: 5px;
+            position: absolute;
+            z-index: 200;
+            padding-left: 10px;
+        }
+        .select-item {
+            cursor: pointer;
+            width: 100%;
+            @include transition3();
+            span {
+                color: var(--White);
+                font-size: 16px;
+                line-height: 26px;
+            }
+        }
+    }
+}

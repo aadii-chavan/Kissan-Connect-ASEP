@@ -1,0 +1,77 @@
+/*range-slider
+    ---------------------*/
+.range-slider {
+    #range-two-val {
+        margin-bottom: 10px;
+        height: 1px;
+        box-shadow: none;
+        border: 0;
+        background-color: var(--Border-12);
+        margin-bottom: 21px;
+        .noUi-connects {
+            .noUi-connect {
+                background-color: var(--Primary);
+            }
+        }
+
+        .noUi-origin {
+            .noUi-handle {
+                cursor: pointer;
+                width: 9px;
+                height: 9px;
+                border-radius: 50%;
+                background-color: var(--Text-4);
+                border: none;
+                box-shadow: none;
+                top: 0;
+                right: -9px;
+                transform: translate(-50%, -50%);
+                &:active {
+                    width: 17px !important;
+                    height: 17px !important;
+                    border: 4px solid var(--Text-4) !important;
+                    right: -17px !important;
+                }
+                &::after,
+                &::before {
+                    display: none;
+                }
+            }
+        }
+    }
+    .bottom {
+        @include d-flex();
+        justify-content: space-between;
+        .price-wrap {
+            @include d-flex();
+            align-items: center;
+            justify-content: flex-start;
+            gap: 2px;
+            .text {
+                font-size: 16px;
+                line-height: 26px;
+            }
+            .value {
+                @include d-flex();
+                align-items: center;
+                gap: 15px;
+                font-family: $font-main5;
+                position: relative;
+            }
+            .line {
+                display: block;
+                width: 15px;
+                height: 1px;
+                background-color: var(--Text);
+            }
+        }
+        .btn-filter {
+            line-height: 26px;
+            padding-bottom: 0px;
+            &::after {
+                background-color: var(--Text-2);
+                bottom: 3px;
+            }
+        }
+    }
+}

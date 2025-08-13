@@ -1,0 +1,36 @@
+/* ---------------------------------------------------------
+    * Name: Donal Farm
+    * Version: 1.0.1 (Update 26/02/2025)
+    * Author: Themesflat
+    * Author URI: http://themesflat.com 
+
+	* Abstracts variable
+    
+    * Reset css styles
+
+    * Widget
+
+    * Components
+
+    * Section
+
+    * Responsive
+ ------------------------------------------------------------------------------ */
+
+/*--------- Abstracts variable ---------- */
+@import "./abstracts/index";
+
+/*---------- Reset css styles ----------- */
+@import "reset";
+
+/*------------ Components ---------------- */
+@import "./component/index";
+
+/*------------ widgets ---------------- */
+@import "./widgets";
+
+/*------------ sections ---------------- */
+@import "./sections";
+
+/*-------------- Responsive ----------------- */
+@import "./responsive";

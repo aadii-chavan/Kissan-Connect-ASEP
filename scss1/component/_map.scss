@@ -1,0 +1,38 @@
+.box-map {
+    width: 100%;
+    height: 100%;
+    .map {
+        height: 475px;
+        width: 100%;
+        .marker {
+            background-image: url("./../icons/marker.svg");
+            background-size: cover;
+            width: 35px;
+            height: 50px;
+            cursor: pointer;
+        }
+    }
+    &.style-2 {
+        .map {
+            height: 283px;
+            border-radius: 20px;
+        }
+    }
+    &.style-3 {
+        .map {
+            height: 327px;
+            border-radius: 20px;
+        }
+    }
+}
+
+.mapboxgl-ctrl-attrib {
+    a,
+    &.mapboxgl-compact {
+        display: none !important;
+    }
+}
+
+a.mapboxgl-ctrl-logo {
+    display: none !important;
+}
