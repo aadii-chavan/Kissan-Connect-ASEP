@@ -1,20 +1,29 @@
 document.addEventListener("DOMContentLoaded", async function () {
     const schemesContainer = document.querySelector(".wrap-blog-list");
+    if (!window.db) {
+        console.error('Firestore (db) not initialized');
+        schemesContainer.innerHTML = "<p>⚠ Schemes unavailable right now.</p>";
+        return;
+    }
 
     try {
-        const response = await fetch("http://localhost:5000/api/schemes");
-        const schemes = await response.json();
+        // If rules block unauthenticated read, sign in anonymously for read-only access
+        try {
+            if (firebase && firebase.auth) {
+                await firebase.auth().signInAnonymously();
+            }
+        } catch (e) {
+            // ignore if disabled
+        }
+        const snapshot = await window.db.collection('schemes').orderBy('createdAt', 'desc').get();
+        const schemes = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 
-        // Check if there are schemes
         if (schemes.length === 0) {
             schemesContainer.innerHTML = "<p>No schemes available at the moment.</p>";
             return;
         }
 
-        // Clear previous content
         schemesContainer.innerHTML = "";
-
-        // Loop through schemes and add them dynamically
         schemes.forEach(scheme => {
             const schemeHTML = `
                 <article class="article-blog-item mb-35 wow fadeInUp" data-wow-delay="0s">
@@ -40,7 +49,6 @@ document.addEventListener("DOMContentLoaded", async function () {
                     </div>
                 </article>
             `;
-
             schemesContainer.innerHTML += schemeHTML;
         });
 
