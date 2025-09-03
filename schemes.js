@@ -366,25 +366,76 @@ document.addEventListener("DOMContentLoaded", function () {
     const renderTagFilters = () => {
         if (!tagsFilterContainer) return;
         const tags = getAllTags();
-        tagsFilterContainer.innerHTML = tags
-            .map(tag => `<button type=\"button\" class=\"btn btn-sm btn-outline-secondary me-2 mb-2\" data-tag=\"${tag}\">${tag}</button>`)
-            .join("");
+        const controls = `
+            <div class=\"d-flex justify-content-between align-items-center mb-2\">
+                <strong>Filter by tags</strong>
+                <button type=\"button\" class=\"btn btn-sm btn-link p-0\" id=\"clear-tags\">Clear</button>
+            </div>
+            <div class=\"form-check mb-2\">
+                <input class=\"form-check-input\" type=\"checkbox\" value=\"__select_all__\" id=\"select-all-tags\">
+                <label class=\"form-check-label\" for=\"select-all-tags\">Select all</label>
+            </div>
+            <div class=\"border-top pt-2\"></div>
+        `;
+        const list = tags.map(tag => `
+            <div class=\"form-check mb-1\">
+                <input class=\"form-check-input tag-check\" type=\"checkbox\" value=\"${tag}\" id=\"tag-${tag.replace(/[^a-z0-9_-]/gi,'_')}\">
+                <label class=\"form-check-label\" for=\"tag-${tag.replace(/[^a-z0-9_-]/gi,'_')}\">${tag}</label>
+            </div>
+        `).join("");
+        tagsFilterContainer.innerHTML = controls + list;
 
-        tagsFilterContainer.addEventListener("click", (e) => {
-            const btn = e.target.closest("button[data-tag]");
+        const dropdownEl = tagsFilterContainer.closest('.dropdown');
+        if (dropdownEl) {
+            dropdownEl.addEventListener('hide.bs.dropdown', function (e) {
+                // Keep dropdown open when interacting inside
+                if (tagsFilterContainer.contains(e.clickEvent && e.clickEvent.target)) {
+                    e.preventDefault();
+                }
+            });
+        }
+
+        const updateButtonLabel = () => {
+            const btn = document.getElementById('tagsFilterDropdown');
             if (!btn) return;
-            const tag = btn.getAttribute("data-tag");
-            if (selectedTags.has(tag)) {
-                selectedTags.delete(tag);
-                btn.classList.remove("active", "btn-secondary");
-                btn.classList.add("btn-outline-secondary");
-            } else {
-                selectedTags.add(tag);
-                btn.classList.add("active", "btn-secondary");
-                btn.classList.remove("btn-outline-secondary");
+            const count = selectedTags.size;
+            btn.textContent = count > 0 ? `Filter Tags (${count})` : 'Filter Tags';
+        };
+
+        tagsFilterContainer.addEventListener("change", (e) => {
+            const target = e.target;
+            if (target.id === 'select-all-tags') {
+                const checked = target.checked;
+                tagsFilterContainer.querySelectorAll('.tag-check').forEach(cb => {
+                    cb.checked = checked;
+                    const t = cb.value;
+                    if (checked) selectedTags.add(t); else selectedTags.delete(t);
+                });
+                updateButtonLabel();
+                applyAndRender();
+                return;
             }
-            applyAndRender();
+            if (target.classList.contains('tag-check')) {
+                const tag = target.value;
+                if (target.checked) selectedTags.add(tag); else selectedTags.delete(tag);
+                updateButtonLabel();
+                applyAndRender();
+            }
         });
+
+        const clearBtn = document.getElementById('clear-tags');
+        if (clearBtn) {
+            clearBtn.addEventListener('click', () => {
+                selectedTags.clear();
+                const selectAll = document.getElementById('select-all-tags');
+                if (selectAll) selectAll.checked = false;
+                tagsFilterContainer.querySelectorAll('.tag-check').forEach(cb => { cb.checked = false; });
+                updateButtonLabel();
+                applyAndRender();
+            });
+        }
+
+        updateButtonLabel();
     };
 
     // Initialize UI
