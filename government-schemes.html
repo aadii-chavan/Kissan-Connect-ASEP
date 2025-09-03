@@ -392,50 +392,30 @@
                 <div class="tf-container w-1290">
                     <div class="row">
                         <div class="col-lg-12">
+                            <div id="scheme-controls" class="mb-30">
+                                <div class="row g-2 align-items-center">
+                                    <div class="col-lg-8 col-md-7 col-12 mb-2">
+                                        <div class="input-group shadow-sm">
+                                            <span class="input-group-text bg-white border-end-0">
+                                                <i class="icon-magnifying-glass"></i>
+                                            </span>
+                                            <input id="scheme-search" type="text" class="form-control border-start-0" placeholder="Search schemes by name, description, or tags..." aria-label="Search schemes" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-5 col-12 mb-2 text-md-end">
+                                        <div class="dropdown d-inline-block">
+                                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="tagsFilterDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                                Filter Tags
+                                            </button>
+                                            <div id="tags-filter" class="dropdown-menu p-3" aria-labelledby="tagsFilterDropdown" style="max-height: 320px; overflow:auto; min-width: 280px;">
+                                                <!-- Tag checkboxes rendered by schemes.js -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="wrap-blog-list mb-50">
-                                <!-- Hardcoded Government Schemes (no database) -->
-                                <article class="article-blog-item mb-35 wow fadeInUp" data-wow-delay="0s">
-                                    <div class="content">
-                                        <h3 class="title fw-7"><a href="https://pmkisan.gov.in/" target="_blank">PM-KISAN</a></h3>
-                                        <p class="text">Income support to landholding farmer families across India.</p>
-                                        <div class="bot"><a class="tf-btn gap-35" href="https://pmkisan.gov.in/" target="_blank"><span class="text-style">Read More</span><div class="icon"><i class="icon-arrow_right"></i></div></a></div>
-                                    </div>
-                                </article>
-                                <article class="article-blog-item mb-35 wow fadeInUp" data-wow-delay="0s">
-                                    <div class="content">
-                                        <h3 class="title fw-7"><a href="https://pmfby.gov.in/" target="_blank">Pradhan Mantri Fasal Bima Yojana (PMFBY)</a></h3>
-                                        <p class="text">Crop insurance to stabilize farmers' income due to crop loss.</p>
-                                        <div class="bot"><a class="tf-btn gap-35" href="https://pmfby.gov.in/" target="_blank"><span class="text-style">Read More</span><div class="icon"><i class="icon-arrow_right"></i></div></a></div>
-                                    </div>
-                                </article>
-                                <article class="article-blog-item mb-35 wow fadeInUp" data-wow-delay="0s">
-                                    <div class="content">
-                                        <h3 class="title fw-7"><a href="https://soilhealth.dac.gov.in/" target="_blank">Soil Health Card Scheme</a></h3>
-                                        <p class="text">Soil testing and recommendations for balanced fertilization.</p>
-                                        <div class="bot"><a class="tf-btn gap-35" href="https://soilhealth.dac.gov.in/" target="_blank"><span class="text-style">Read More</span><div class="icon"><i class="icon-arrow_right"></i></div></a></div>
-                                    </div>
-                                </article>
-                                <article class="article-blog-item mb-35 wow fadeInUp" data-wow-delay="0s">
-                                    <div class="content">
-                                        <h3 class="title fw-7"><a href="https://pgsindia-ncof.gov.in/" target="_blank">Paramparagat Krishi Vikas Yojana (PKVY)</a></h3>
-                                        <p class="text">Promotes organic farming through cluster-based approach.</p>
-                                        <div class="bot"><a class="tf-btn gap-35" href="https://pgsindia-ncof.gov.in/" target="_blank"><span class="text-style">Read More</span><div class="icon"><i class="icon-arrow_right"></i></div></a></div>
-                                    </div>
-                                </article>
-                                <article class="article-blog-item mb-35 wow fadeInUp" data-wow-delay="0s">
-                                    <div class="content">
-                                        <h3 class="title fw-7"><a href="https://enam.gov.in/" target="_blank">e-NAM</a></h3>
-                                        <p class="text">National Agricultural Market for transparent agri-trading.</p>
-                                        <div class="bot"><a class="tf-btn gap-35" href="https://enam.gov.in/" target="_blank"><span class="text-style">Read More</span><div class="icon"><i class="icon-arrow_right"></i></div></a></div>
-                                    </div>
-                                </article>
-                                <article class="article-blog-item mb-35 wow fadeInUp" data-wow-delay="0s">
-                                    <div class="content">
-                                        <h3 class="title fw-7"><a href="https://www.myscheme.gov.in/schemes/kcc" target="_blank">Kisan Credit Card (KCC)</a></h3>
-                                        <p class="text">Timely credit for cultivation and allied needs.</p>
-                                        <div class="bot"><a class="tf-btn gap-35" href="https://www.myscheme.gov.in/schemes/kcc" target="_blank"><span class="text-style">Read More</span><div class="icon"><i class="icon-arrow_right"></i></div></a></div>
-                                    </div>
-                                </article>
+                                <!-- Schemes will be rendered dynamically by schemes.js -->
                             </div>
                         </div>
                     </div>
@@ -694,6 +674,7 @@
     <script type="text/javascript" src="js/magnific-popup.min.js"></script>
     <!-- Remove broken rellax include to avoid runtime errors -->
     <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="schemes.js"></script>
     <!-- No database/scripts needed for hardcoded content -->
     <!-- /Javascript -->
 
