@@ -49,7 +49,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div class="content">
                     <a href="${article.url}" target="_blank" class="title">${article.title}</a>
                     <p class="text">${article.description || 'Description not available.'}</p>
-                    <a href="${article.url}" target="_blank" class="tf-btn-read">Read More</a>
+                    <a href="${article.url}" target="_blank" class="tf-btn bg-white gap-30">
+                        <span class="text-style cl-primary">Read More</span>
+                        <div class="icon"><i class="icon-arrow_right"></i></div>
+                    </a>
                 </div>
             `;
 
