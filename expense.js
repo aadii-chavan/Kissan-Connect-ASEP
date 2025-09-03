@@ -370,14 +370,99 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Global handler for delete buttons
+    // 🟢 Edit expense modal logic
+    const editModal = document.getElementById('edit-expense-modal');
+    const editForm = document.getElementById('edit-expense-form');
+    const closeModalBtn = document.querySelector('.close-modal');
+    const cancelEditBtn = document.getElementById('cancel-edit-btn');
+
+    // Open modal and populate fields
+    function openEditModal(expense) {
+        document.getElementById('edit-expense-id').value = expense.id;
+        document.getElementById('edit-expense-name').value = expense.name;
+        document.getElementById('edit-expense-desc').value = expense.description || '';
+        document.getElementById('edit-expense-amount').value = expense.amount;
+        document.getElementById('edit-expense-date').value = expense.date;
+        // Show/hide fields based on type
+        if (expense.type === 'General') {
+            document.getElementById('edit-expense-name-label').textContent = 'Expense Name';
+            document.getElementById('edit-plot-name-group').classList.add('hidden');
+            document.getElementById('edit-category-group').classList.add('hidden');
+            document.getElementById('edit-expense-name').readOnly = false;
+        } else {
+            document.getElementById('edit-expense-name-label').textContent = 'Plot Name';
+            document.getElementById('edit-plot-name-group').classList.remove('hidden');
+            document.getElementById('edit-category-group').classList.remove('hidden');
+            document.getElementById('edit-plot-name').value = expense.name;
+            document.getElementById('edit-expense-category').value = expense.category;
+            document.getElementById('edit-expense-name').readOnly = true;
+        }
+        editModal.classList.remove('hidden');
+    }
+
+    // Close modal
+    function closeEditModal() {
+        editModal.classList.add('hidden');
+    }
+
+    // Handle click on Edit button
+    // Use event delegation for both tables
     document.addEventListener('click', function(e) {
+        if (e.target && e.target.classList.contains('edit-expense-btn')) {
+            const expenseId = e.target.getAttribute('data-id');
+            const allExpenses = JSON.parse(localStorage.getItem('expenses')) || [];
+            const expense = allExpenses.find(exp => exp.id === expenseId);
+            if (expense) {
+                openEditModal(expense);
+            }
+        }
         if (e.target && e.target.classList.contains('delete-expense-btn')) {
             const expenseId = e.target.getAttribute('data-id');
             if (confirm('Are you sure you want to delete this expense?')) {
                 deleteExpense(expenseId);
             }
         }
+    });
+
+    // Handle modal close
+    closeModalBtn.addEventListener('click', closeEditModal);
+    cancelEditBtn.addEventListener('click', closeEditModal);
+
+    // Handle save (submit) in edit modal
+    editForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const id = document.getElementById('edit-expense-id').value;
+        const name = document.getElementById('edit-expense-name').value.trim();
+        const desc = document.getElementById('edit-expense-desc').value.trim();
+        const amount = document.getElementById('edit-expense-amount').value.trim();
+        const date = document.getElementById('edit-expense-date').value.trim();
+        let allExpenses = JSON.parse(localStorage.getItem('expenses')) || [];
+        const idx = allExpenses.findIndex(exp => exp.id === id);
+        if (idx === -1) {
+            alert('Expense not found!');
+            closeEditModal();
+            return;
+        }
+        // Validate
+        if (!amount || !date) {
+            alert('Amount and Date are required!');
+            return;
+        }
+        if (allExpenses[idx].type === 'General') {
+            if (!name) {
+                alert('Expense Name is required!');
+                return;
+            }
+            allExpenses[idx].name = name;
+        }
+        allExpenses[idx].description = desc;
+        allExpenses[idx].amount = amount;
+        allExpenses[idx].date = date;
+        localStorage.setItem('expenses', JSON.stringify(allExpenses));
+        expenses = allExpenses;
+        loadExpenses();
+        closeEditModal();
+        alert('✅ Expense updated successfully!');
     });
     
     // 🟢 Filter change event handlers
@@ -485,6 +570,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <td class="date">${expense.date}</td>
                 <td class="actions">
                     <button class="delete-expense-btn" data-id="${expense.id}">Delete</button>
+                    <button class="edit-expense-btn" data-id="${expense.id}">Edit</button>
                 </td>
             `;
             generalTableBody.appendChild(row);
@@ -501,6 +587,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <td class="date">${expense.date}</td>
                 <td class="actions">
                     <button class="delete-expense-btn" data-id="${expense.id}">Delete</button>
+                    <button class="edit-expense-btn" data-id="${expense.id}">Edit</button>
                 </td>
             `;
             plotTableBody.appendChild(row);

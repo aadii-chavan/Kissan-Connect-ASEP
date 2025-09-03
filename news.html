@@ -422,129 +422,113 @@
             <style>
                 body {
                     font-family: 'Nunito', sans-serif;
-                    background-color: #f9f9f9;
+                    background-color: #f8f8f3;
                     margin: 0;
                     padding: 0;
                     box-sizing: border-box;
+                    color: #234f20;
                 }
-        
+
                 .main-content {
                     padding: 20px;
                 }
-        
+
                 .tf-container {
                     max-width: 1200px;
                     margin: 0 auto;
                     padding: 20px;
                 }
-        
-                .row {
-                    display: flex;
-                    flex-wrap: wrap;
-                }
-        
-                .col-lg-12 {
-                    width: 100%;
-                }
-        
-                .mb-81 {
-                    margin-bottom: 81px;
-                }
-        
+
+                .row { display: flex; flex-wrap: wrap; }
+                .col-lg-12 { width: 100%; }
+                .mb-81 { margin-bottom: 81px; }
+
                 .grid-layout-3 {
                     display: grid;
                     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-                    gap: 20px;
+                    gap: 24px;
                     justify-content: center;
                 }
-        
+
+                /* Card */
                 .news-box {
                     background-color: #fff;
-                    border-radius: 8px;
+                    border-radius: 14px;
                     overflow: hidden;
-                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-                    transition: transform 0.3s ease;
+                    border: 1px solid rgba(13, 64, 28, 0.08);
+                    box-shadow: 0 6px 18px rgba(13, 64, 28, 0.06);
+                    transition: transform 0.25s ease, box-shadow 0.25s ease;
                     display: flex;
                     flex-direction: column;
-                    justify-content: space-between;
                     height: 100%;
                 }
-        
                 .news-box:hover {
-                    transform: translateY(-5px);
+                    transform: translateY(-6px);
+                    box-shadow: 0 10px 24px rgba(13, 64, 28, 0.12);
                 }
-        
-                .news-box .image {
-                    position: relative;
-                    width: 100%;
-                    height: 0;
-                    padding-bottom: 56.25%;
-                    overflow: hidden;
-                }
-        
+
+                /* Image */
+                .news-box .image { position: relative; width: 100%; height: 0; padding-bottom: 56.25%; overflow: hidden; }
                 .news-box .image img {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
+                    position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;
+                    transition: transform 0.4s ease;
                 }
-        
-                .news-box .content {
-                    padding: 15px;
-                    flex: 1;
-                    display: flex;
-                    flex-direction: column;
-                }
-        
+                .news-box:hover .image img { transform: scale(1.05); }
+
+                /* Content */
+                .news-box .content { padding: 18px; display: flex; flex-direction: column; flex: 1; }
+
                 .news-box .title {
                     font-size: 20px;
-                    font-weight: 600;
-                    margin-bottom: 15px;
-                    color: #333;
+                    font-weight: 700;
+                    margin-bottom: 12px;
+                    color: #0d401c;
                     text-decoration: none;
-                    transition: color 0.3s ease;
                     line-height: 1.4;
+                    transition: color 0.2s ease;
                 }
-        
-                .news-box .title:hover {
-                    color: #007bff;
-                }
-        
+                .news-box .title:hover { color: #3b8f2c; }
+
                 .news-box .text {
-                    color: #666;
-                    font-size: 16px;
-                    margin-bottom: 20px;
+                    color: #46604a;
+                    font-size: 15px;
+                    line-height: 1.6;
+                    margin-bottom: 18px;
                     flex-grow: 1;
                 }
-        
+
+                /* Read more button */
                 .news-box .tf-btn-read {
-                    display: inline-block;
-                    padding: 10px 20px;
-                    background-color: #007bff;
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 10px;
+                    padding: 10px 16px;
+                    background-color: #0d401c;
                     color: #fff;
-                    border-radius: 4px;
+                    border-radius: 8px;
                     text-decoration: none;
-                    transition: background-color 0.3s ease;
+                    font-weight: 600;
+                    transition: background-color 0.2s ease, transform 0.1s ease;
+                    width: fit-content;
                 }
-        
-                .news-box .tf-btn-read:hover {
-                    background-color: #0056b3;
-                }
-        
-                .justify-center {
-                    display: flex;
-                    justify-content: center;
-                    margin-top: 20px;
-                }
-        
+                .news-box .tf-btn-read:hover { background-color: #3b8f2c; }
+                .news-box .tf-btn-read:active { transform: translateY(1px); }
+
+                /* Loader */
                 .loading-more {
                     text-align: center;
                     padding: 20px;
-                    font-size: 18px;
-                    color: #007bff;
-                    display: none; /* Initially hidden */
+                    font-size: 16px;
+                    color: #0d401c;
+                    display: none;
+                }
+
+                /* Responsive tweaks */
+                @media (max-width: 768px) {
+                    .grid-layout-3 { gap: 16px; }
+                    .news-box .content { padding: 14px; }
+                    .news-box .title { font-size: 18px; }
+                    .news-box .text { font-size: 14px; }
                 }
             </style>
         </section>

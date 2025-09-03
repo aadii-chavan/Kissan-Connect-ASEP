@@ -158,20 +158,34 @@ button:hover {
     font-size: 14px;
 }
 
-.delete-expense-btn {
-    background-color: #dc3545;
+.edit-expense-btn, .delete-expense-btn {
+    background: #1a3d17;
     color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    font-weight: 500;
     border: none;
     border-radius: 4px;
-    padding: 5px 10px;
-    cursor: pointer;
-    font-size: 14px;
-    width: auto;
-    transition: background-color 0.2s;
+    padding: 4px 12px;
+    margin: 0 2px;
+    min-width: 60px;
+    min-height: 28px;
+    line-height: 1.2;
+    display: inline-block;
+    vertical-align: middle;
 }
-
+.edit-expense-btn:hover {
+    background: #285c2c;
+}
+.delete-expense-btn {
+    background-color: #dc3545;
+}
 .delete-expense-btn:hover {
     background-color: #c82333;
+}
+.edit-expense-btn i, .delete-expense-btn i {
+  pointer-events: none;
 }
 
 .expense-table .actions {
@@ -368,4 +382,81 @@ button:hover {
         width: 100%;
         margin-top: 10px;
     }
+}
+
+/* Edit Expense Modal Styles */
+.modal {
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  background: rgba(34, 79, 32, 0.25); /* farm green overlay */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-content {
+  background: #fff;
+  margin: auto;
+  padding: 32px 24px 24px 24px;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(34, 79, 32, 0.15);
+  max-width: 400px;
+  width: 100%;
+  position: relative;
+  animation: modalIn 0.2s;
+}
+@keyframes modalIn {
+  from { transform: translateY(-40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+.close-modal {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  font-size: 28px;
+  color: #234f20;
+  cursor: pointer;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+.close-modal:hover {
+  color: #3b8f2c;
+}
+#edit-expense-form label {
+  font-weight: 600;
+  color: #234f20;
+  margin-top: 10px;
+  display: block;
+  text-align: left;
+}
+#edit-expense-form input,
+#edit-expense-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 6px 0 12px 0;
+  border-radius: 6px;
+  border: 1.5px solid #d1e7cd;
+  font-size: 16px;
+  background: #f8f8f3;
+}
+#edit-expense-form input:focus,
+#edit-expense-form textarea:focus {
+  border-color: #3b8f2c;
+  outline: none;
+}
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 10px;
+}
+@media (max-width: 600px) {
+  .modal-content {
+    max-width: 95vw;
+    padding: 18px 6px 12px 6px;
+  }
 }

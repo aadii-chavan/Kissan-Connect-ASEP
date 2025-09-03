@@ -880,7 +880,7 @@
         <script>
             document.addEventListener("DOMContentLoaded", function() {
                 // Get API key from environment variable or use a default (for development)
-                const API_KEY = process.env.WEATHER_API_KEY || "YQQaYl6caqFVXroQ7ZZyqXcxSEdNFniO";
+                const API_KEY = "YQQaYl6caqFVXroQ7ZZyqXcxSEdNFniO";
 
                 function fetchWeather(lat, lon, locationName) {
                     const URL = `https://api.tomorrow.io/v4/weather/forecast?location=${lat},${lon}&apikey=${API_KEY}`;
@@ -942,11 +942,15 @@
                             },
                             (error) => {
                                 console.error("Geolocation error:", error);
-                                document.getElementById("weather-report").innerHTML = "Location access denied.";
+                                // Use default location (Pune, India) as fallback
+                                document.getElementById("weather-report").innerHTML = "Using default location (Pune, India)...";
+                                fetchWeather(18.5204, 73.8567, "Pune, India");
                             }
                         );
                     } else {
-                        document.getElementById("weather-report").innerHTML = "Geolocation is not supported.";
+                        // Use default location (Pune, India) as fallback
+                        document.getElementById("weather-report").innerHTML = "Using default location (Pune, India)...";
+                        fetchWeather(18.5204, 73.8567, "Pune, India");
                     }
                 }
 
@@ -1218,111 +1222,86 @@
     <!-- Add this script section before the closing body tag -->
     <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Temperature toggle
+        // Temperature toggle - only add if element exists
         const tempToggle = document.querySelector('.weather-toggle');
-        let isCelsius = true;
-
-        tempToggle.addEventListener('click', function() {
-            isCelsius = !isCelsius;
-            this.classList.toggle('active');
-            this.textContent = isCelsius ? '°C' : '°F';
-            
-            // Update all temperature displays
-            document.querySelectorAll('.temp').forEach(temp => {
-                const currentTemp = parseFloat(temp.getAttribute('data-temp'));
-                if (isCelsius) {
-                    temp.textContent = `${currentTemp}°C`;
-                } else {
-                    const fahrenheit = (currentTemp * 9/5) + 32;
-                    temp.textContent = `${Math.round(fahrenheit)}°F`;
-                }
-            });
-        });
-
-        // Refresh button
-        const refreshBtn = document.querySelector('.refresh-weather');
-        refreshBtn.addEventListener('click', function() {
-            this.style.transform = 'rotate(360deg)';
-            setTimeout(() => {
-                this.style.transform = 'none';
-                fetchWeatherData(); // You'll need to implement this function
-            }, 1000);
-        });
-
-        // View toggle (Daily/Hourly)
-        const viewToggle = document.querySelector('.view-toggle');
-        const forecastContainer = document.querySelector('.forecast-container');
-        let isDailyView = true;
-
-        viewToggle.addEventListener('click', function() {
-            isDailyView = !isDailyView;
-            this.classList.toggle('active');
-            this.textContent = isDailyView ? 'Daily' : 'Hourly';
-            
-            // Toggle between daily and hourly forecast views
-            if (isDailyView) {
-                showDailyForecast();
-            } else {
-                showHourlyForecast();
-            }
-        });
-
-        // Advice filters
-        const adviceFilters = document.querySelectorAll('.advice-filter');
-        const adviceItems = document.querySelectorAll('.advice-item');
-
-        adviceFilters.forEach(filter => {
-            filter.addEventListener('click', function() {
-                // Remove active class from all filters
-                adviceFilters.forEach(f => f.classList.remove('active'));
-                // Add active class to clicked filter
-                this.classList.add('active');
+        if (tempToggle) {
+            let isCelsius = true;
+            tempToggle.addEventListener('click', function() {
+                isCelsius = !isCelsius;
+                this.classList.toggle('active');
+                this.textContent = isCelsius ? '°C' : '°F';
                 
-                const filterType = this.getAttribute('data-filter');
-                
-                // Show/hide advice items based on filter
-                adviceItems.forEach(item => {
-                    if (filterType === 'all') {
-                        item.style.display = 'block';
+                // Update all temperature displays
+                document.querySelectorAll('.temp').forEach(temp => {
+                    const currentTemp = parseFloat(temp.getAttribute('data-temp'));
+                    if (isCelsius) {
+                        temp.textContent = `${currentTemp}°C`;
                     } else {
-                        const itemType = item.getAttribute('data-type');
-                        item.style.display = itemType === filterType ? 'block' : 'none';
+                        const fahrenheit = (currentTemp * 9/5) + 32;
+                        temp.textContent = `${Math.round(fahrenheit)}°F`;
                     }
                 });
             });
-        });
-
-        // Helper functions for forecast views
-        function showDailyForecast() {
-            // Implementation for showing daily forecast
-            const dailyData = getDailyForecastData(); // You'll need to implement this
-            updateForecastDisplay(dailyData);
+            tempToggle.textContent = '°C';
         }
 
-        function showHourlyForecast() {
-            // Implementation for showing hourly forecast
-            const hourlyData = getHourlyForecastData(); // You'll need to implement this
-            updateForecastDisplay(hourlyData);
+        // Refresh button - only add if element exists
+        const refreshBtn = document.querySelector('.refresh-weather');
+        if (refreshBtn) {
+            refreshBtn.addEventListener('click', function() {
+                this.style.transform = 'rotate(360deg)';
+                setTimeout(() => {
+                    this.style.transform = 'none';
+                    // Refresh weather data
+                    getLocation();
+                }, 1000);
+            });
         }
 
-        function updateForecastDisplay(data) {
-            // Implementation for updating the forecast display
-            forecastContainer.innerHTML = data.map(item => `
-                <div class="forecast-card">
-                    <div class="forecast-day">${item.time}</div>
-                    <div class="temp" data-temp="${item.temperature}">${item.temperature}°C</div>
-                    <div class="rain-chance">
-                        <i class="fas fa-tint"></i>
-                        ${item.rainChance}%
-                    </div>
-                </div>
-            `).join('');
+        // View toggle - only add if element exists
+        const viewToggle = document.querySelector('.view-toggle');
+        if (viewToggle) {
+            let isDailyView = true;
+            viewToggle.addEventListener('click', function() {
+                isDailyView = !isDailyView;
+                this.classList.toggle('active');
+                this.textContent = isDailyView ? 'Daily' : 'Hourly';
+            });
+            viewToggle.textContent = 'Daily';
         }
 
-        // Initial setup
-        tempToggle.textContent = '°C';
-        viewToggle.textContent = 'Daily';
-        document.querySelector('.advice-filter[data-filter="all"]').classList.add('active');
+        // Advice filters - only add if elements exist
+        const adviceFilters = document.querySelectorAll('.advice-filter');
+        const adviceItems = document.querySelectorAll('.advice-item');
+        
+        if (adviceFilters.length > 0) {
+            adviceFilters.forEach(filter => {
+                filter.addEventListener('click', function() {
+                    // Remove active class from all filters
+                    adviceFilters.forEach(f => f.classList.remove('active'));
+                    // Add active class to clicked filter
+                    this.classList.add('active');
+                    
+                    const filterType = this.getAttribute('data-filter');
+                    
+                    // Show/hide advice items based on filter
+                    adviceItems.forEach(item => {
+                        if (filterType === 'all') {
+                            item.style.display = 'block';
+                        } else {
+                            const itemType = item.getAttribute('data-type');
+                            item.style.display = itemType === filterType ? 'block' : 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Set initial active filter
+            const allFilter = document.querySelector('.advice-filter[data-filter="all"]');
+            if (allFilter) {
+                allFilter.classList.add('active');
+            }
+        }
     });
     </script>
 
